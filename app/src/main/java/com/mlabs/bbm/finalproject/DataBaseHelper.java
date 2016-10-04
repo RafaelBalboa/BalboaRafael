@@ -1,4 +1,4 @@
-package com.mlabs.bbm.firstandroidapp;
+package com.mlabs.bbm.finalproject;
 
 /**
  * Created by ACER on 9/22/2016.

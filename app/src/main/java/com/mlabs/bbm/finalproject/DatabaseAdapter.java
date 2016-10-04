@@ -1,4 +1,4 @@
-package com.mlabs.bbm.firstandroidapp;
+package com.mlabs.bbm.finalproject;
 
 import android.content.ContentValues;
 import android.content.Context;

@@ -1,4 +1,4 @@
-package com.mlabs.bbm.firstandroidapp;
+package com.mlabs.bbm.finalproject;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -17,10 +17,15 @@ public class OntouchAct extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ontouch);
         final EditText t1 = (EditText) findViewById(R.id.editText8);
+        t1.setKeyListener(null);
         final EditText t2 = (EditText) findViewById(R.id.editText9);
+        t2.setKeyListener(null);
         final EditText t3 = (EditText) findViewById(R.id.editText10);
+        t3.setKeyListener(null);
         final EditText t4 = (EditText) findViewById(R.id.editText11);
+        t4.setKeyListener(null);
         final EditText t5 = (EditText) findViewById(R.id.editText12);
+        t5.setKeyListener(null);
         imageLogo = (ImageView) findViewById(R.id.imageView);
         imageLogo.setOnTouchListener(new View.OnTouchListener() {
             @Override

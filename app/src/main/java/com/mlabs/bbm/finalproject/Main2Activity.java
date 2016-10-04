@@ -1,4 +1,4 @@
-package com.mlabs.bbm.firstandroidapp;
+package com.mlabs.bbm.finalproject;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
