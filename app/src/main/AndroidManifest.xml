@@ -4,10 +4,13 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/splash"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+
+        >
+
         <activity
             android:name="com.mlabs.bbm.finalproject.SplashScreen"
             android:label="@string/app_name">
@@ -26,7 +29,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name="com.mlabs.bbm.finalproject.Main2Activity"></activity>
         <activity
             android:name="com.mlabs.bbm.finalproject.OntouchAct"
             android:label="@string/app_name">

@@ -41,10 +41,13 @@ public class MainActivity extends AppCompatActivity {
                 /// Create Intent for SignUpActivity  abd Start The Activity
                 Intent intentSignUP=new Intent(getApplicationContext(),SignUp.class);
                 startActivity(intentSignUP);
+
             }
         });
         final  EditText editTextEmail=(EditText)findViewById(R.id.email);
         final  EditText editTextPassword=(EditText)findViewById(R.id.pass);
+        editTextEmail.setText("");
+        editTextPassword.setText("");
 
         Button btnSignIn=(Button)findViewById(R.id.buttonL);
 
@@ -61,15 +64,15 @@ public class MainActivity extends AppCompatActivity {
                 String savePassword = DatabaseAdapter.getSinlgeEntry(email);
                 String umail = DatabaseAdapter.getUsername(uname);
 
-
-
-
                 // check if the Stored password matches with  Password entered by user
                 if(pword.equals(savePassword)|pword.equals(umail))
                 {
                     Toast.makeText(MainActivity.this, "Login Successfull", Toast.LENGTH_SHORT).show();
                     Intent intentSignUP=new Intent(getApplicationContext(),OntouchAct.class);
                     startActivity(intentSignUP);
+                    editTextEmail.setText("");
+                    editTextPassword.setText("");
+                    finish();
                 }
                 else
                 {

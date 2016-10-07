@@ -71,6 +71,7 @@ public class SignUp extends AppCompatActivity {
                     popToast = Toast.makeText(getApplicationContext(), null, Toast.LENGTH_SHORT);
                     popToast.setText("Account Successfully Created ");
                     popToast.show();
+                    finish();
 
                     Intent intent = new Intent(SignUp.this,MainActivity.class );
                     startActivity(intent);
