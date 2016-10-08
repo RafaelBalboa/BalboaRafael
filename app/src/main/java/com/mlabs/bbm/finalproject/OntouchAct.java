@@ -16,49 +16,85 @@ public class OntouchAct extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ontouch);
-        final EditText t1 = (EditText) findViewById(R.id.editText8);
-        t1.setKeyListener(null);
-        final EditText t2 = (EditText) findViewById(R.id.editText9);
-        t2.setKeyListener(null);
-        final EditText t3 = (EditText) findViewById(R.id.editText10);
-        t3.setKeyListener(null);
-        final EditText t4 = (EditText) findViewById(R.id.editText11);
-        t4.setKeyListener(null);
-        final EditText t5 = (EditText) findViewById(R.id.editText12);
-        t5.setKeyListener(null);
+        final EditText field1 = (EditText) findViewById(R.id.editText8);
+        final EditText field2 = (EditText) findViewById(R.id.editText9);
+        final EditText field3 = (EditText) findViewById(R.id.editText10);
+        final EditText field4 = (EditText) findViewById(R.id.editText11);
+        final EditText field5 = (EditText) findViewById(R.id.editText12);
+        field1.setKeyListener(null);
+        field2.setKeyListener(null);
+        field3.setKeyListener(null);
+        field4.setKeyListener(null);
+        field5.setKeyListener(null);
+
         imageLogo = (ImageView) findViewById(R.id.imageView);
         imageLogo.setOnTouchListener(new View.OnTouchListener() {
+            float x,y,x1,y1;
+
             @Override
-            public boolean onTouch(View view, MotionEvent event) {
-                switch (event.getAction()) {
+            public boolean onTouch(View view, MotionEvent e) {
+
+                String actionX = "";
+                String actionY = "";
+                String quadrant = "";
+
+                switch (e.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        x1 = event.getX();
-                        y1 = event.getY();
-                        t1.setText(x1 + ","+y1);
+                        x = e.getX();
+                        y = e.getY();
+                        return true;
                     case MotionEvent.ACTION_UP:
-                        x2 = event.getX();
-                        y2= event.getY();
-                        t2.setText(x2 +","+y2);
-                        a=x1-x2;
-                        b=y1-y2;
-                        t3.setText(Math.abs(a) +","+Math.abs(b));
-                        if (a>0 & b>0 ){msg2="2nd Quadrant";}
-                        if (a>0 & b<0){msg2="3rd Quadrant";}
-                        if (a<0 & b<0){msg2="4th Quadrant";}
-                        if (a<0 & b>0){msg2="1st Quadrant";}
-                        if (y1 < y2){msg1 +=" Swiped Bottom";}
-                        if (y1 > y2){msg1 +=" Swiped Up";}
-                        if (x1 > x2){msg1 +=" Swiped Left";}
-                        if (x1 < x2){msg1 +=" Swiped Right";}
-                        t4.setText(msg1);
-                        msg1="";
-                        t5.setText(msg2);
-                        msg2="";
-                }return true;
+                        float X = imageLogo.getRight()/2;
+                        float Y = imageLogo.getBottom()/2;
+
+                        x1=e.getX();
+                        y1=e.getY();
+
+                        actionX = "";
+                        actionY = "";
+                        quadrant = "";
+
+                        if (x<x1){
+                            actionX = "Swiped right ";
+                        }
+                        if (x>x1){
+                            actionX = "Swiped left. ";
+                        }
+                        if (y<y1){
+                            actionY = "Swiped down. ";
+                        }
+                        if (y>y1)
+                        {
+                            actionY = "Swiped up. ";
+                        }
+
+                        if(x1>X && y1>Y){
+                            quadrant = "Quadrant 4";
+                        }
+                        if(x1<X && y1>Y){
+                            quadrant = "Quadrant 3";
+                        }
+                        if(x1<X && y1<Y){
+                            quadrant = "Quadrant 2";
+                        }
+                        if(x1>X && y1<Y){
+                            quadrant = "Quadrant 1";
+                        }
+
+                        field1.setText(x + ", " + y);
+                        field2.setText(x1 + ", " + y1);
+                        field3.setText(  (Math.abs(x1-x))+", "+ (Math.abs(y1-y)) );
+
+                        field5.setText(actionX + actionY);
+                        field4.setText(quadrant);
+
+                }
+                return  false;
             }
+
         });
     }
-}
+    }
 
 
 

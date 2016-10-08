@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 // TODO Auto-generated method stub
 
                 /// Create Intent for SignUpActivity  abd Start The Activity
-                Intent intentSignUP=new Intent(getApplicationContext(),SignUp.class);
+                Intent intentSignUP=new Intent(getApplication(),SignUp.class);
                 startActivity(intentSignUP);
 
             }
@@ -68,10 +68,8 @@ public class MainActivity extends AppCompatActivity {
                 if(pword.equals(savePassword)|pword.equals(umail))
                 {
                     Toast.makeText(MainActivity.this, "Login Successfull", Toast.LENGTH_SHORT).show();
-                    Intent intentSignUP=new Intent(getApplicationContext(),OntouchAct.class);
+                    Intent intentSignUP=new Intent(getApplication(),OntouchAct.class);
                     startActivity(intentSignUP);
-                    editTextEmail.setText("");
-                    editTextPassword.setText("");
                     finish();
                 }
                 else

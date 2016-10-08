@@ -68,13 +68,12 @@ public class SignUp extends AppCompatActivity {
 
                 else {
                     DatabaseAdapter.insertEntry(fname.getText().toString(),Lname.getText().toString(),uname.getText().toString(),email.getText().toString(),password.getText().toString());
-                    popToast = Toast.makeText(getApplicationContext(), null, Toast.LENGTH_SHORT);
+                    popToast = Toast.makeText(getApplication(), null, Toast.LENGTH_SHORT);
                     popToast.setText("Account Successfully Created ");
                     popToast.show();
-                    finish();
+                    Intent intentSignUP = new Intent(SignUp.this,MainActivity.class);
+                    startActivity(intentSignUP);
 
-                    Intent intent = new Intent(SignUp.this,MainActivity.class );
-                    startActivity(intent);
                 }
             }
         });
@@ -86,8 +85,8 @@ public class SignUp extends AppCompatActivity {
     protected void onDestroy() {
         // TODO Auto-generated method stub
         super.onDestroy();
-
         loginDataBaseAdapter.close();
+
     }
 
     private boolean validateEmail(String email) {
@@ -131,3 +130,4 @@ public class SignUp extends AppCompatActivity {
 
 
 }
+
