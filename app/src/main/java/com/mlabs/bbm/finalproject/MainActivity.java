@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Login Successfull", Toast.LENGTH_SHORT).show();
                     Intent intentSignUP=new Intent(getApplication(),OntouchAct.class);
                     startActivity(intentSignUP);
-                    finish();
+
                 }
                 else
                 {
